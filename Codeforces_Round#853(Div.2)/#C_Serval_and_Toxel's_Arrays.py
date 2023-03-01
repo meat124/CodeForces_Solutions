@@ -15,11 +15,13 @@ for t in range(int(input())):
         appear[a[p - 1]] = -1
         appear[v] = i + 1
         a[p - 1] = v
+    # 남은 -1이 아닌 값들 처리
     for i in range(n + m + 1):
         if appear[i] != -1:
             cnt[i] += m + 1 - appear[i]
             appear[i] = -1
     result = 0
+    # 1~m 까지의 합
     base = (m*(m+1))//2
     for i in cnt:
         result += base - (m+1-i)*(m-i)//2
